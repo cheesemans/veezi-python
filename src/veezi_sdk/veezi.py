@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 import requests
 from pydantic import BaseModel, Field
@@ -23,21 +23,21 @@ class Film(BaseModel):
     signage_text: str = Field(alias="SignageText")
     distributor: str = Field(alias="Distributor")
     opening_date: str = Field(alias="OpeningDate")
-    rating: str = Field(alias="Rating")
+    rating: Optional[str] = Field(alias="Rating")
     status: str = Field(alias="Status")
-    content: str = Field(alias="Content")
+    content: Optional[str] = Field(alias="Content")
     duration: int = Field(alias="Duration")
-    display_sequence: str = Field(alias="DisplaySequence")
-    national_code: str = Field(alias="NationalCode")
+    display_sequence: int = Field(alias="DisplaySequence")
+    national_code: Optional[str] = Field(alias="NationalCode")
     format: str = Field(alias="Format")
-    is_restricted: str = Field(alias="IsRestricted")
-    people: List[Staff]
-    audio_language: str = Field(alias="AudioLanguage")
-    government_film_title: str = Field(alias="GovernmentFilmTitle")
+    is_restricted: bool = Field(alias="IsRestricted")
+    people: List[Staff] = Field(alias="People")
+    audio_language: Optional[str] = Field(alias="AudioLanguage")
+    government_film_title: Optional[str] = Field(alias="GovernmentFilmTitle")
     film_poster_url: str = Field(alias="FilmPosterUrl")
     film_poster_thumbnail_url: str = Field(alias="FilmPosterThumbnailUrl")
     backdrop_image_url: str = Field(alias="BackdropImageUrl")
-    film_trailer_url: str = Field(alias="FilmTrailerUrl")
+    film_trailer_url: Optional[str] = Field(alias="FilmTrailerUrl")
 
 
 def _request(endpoint: str, api_token: str) -> requests.Response:
