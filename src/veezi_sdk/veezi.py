@@ -18,7 +18,7 @@ class Film(BaseModel):
     id: str = Field(alias="Id")
     title: str = Field(alias="Title")
     short_name: str = Field(alias="ShortName")
-    synopsis: str = Field(alias="Synopsis")
+    synopsis: Optional[str] = Field(alias="Synopsis")
     genre: str = Field(alias="Genre")
     signage_text: str = Field(alias="SignageText")
     distributor: str = Field(alias="Distributor")
